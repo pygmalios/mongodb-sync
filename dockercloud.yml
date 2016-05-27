@@ -1,0 +1,11 @@
+mongosync:
+  image: 'pygmalios/mongodb-sync:latest'
+  autodestroy: always
+  environment:
+    - MONGO_DATABASE=<database_name_here> #MUST CHANGE THIS
+    - MONGO_ORIGIN_HOST=mongodb:27017 #MUST CHANGE THIS
+    - MONGO_ORIGIN_USER=<username_here> #MUST CHANGE THIS
+    - MONGO_ORIGIN_PASSWORD=<password_here> #MUST CHANGE THIS
+    - MONGO_DESTINATION_HOST=mongodb:27017 #MUST CHANGE THIS
+    - MONGO_DESTINATION_USER=<username_here> #MUST CHANGE THIS
+    - MONGO_DESTINATION_PASSWORD=<password_here> #MUST CHANGE THIS
