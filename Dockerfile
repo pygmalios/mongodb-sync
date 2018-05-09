@@ -11,4 +11,6 @@ WORKDIR /root/
 
 ADD sync.sh /root/
 
+RUN chmod +x /root/sync.sh
+
 CMD /root/sync.sh 
