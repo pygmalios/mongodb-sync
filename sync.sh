@@ -15,11 +15,11 @@ fi;
 
 echo "Uploading backup"
 if [ ! -z ${MONGO_DESTINATION_URI:-} ]; then
-  mongorestore --drop --uri="$MONGO_DESTINATION_URI" -d "$MONGO_DATABASE" "mongodb_backup/$MONGO_DATABASE"
+  mongorestore --drop --convertLegacyIndexes --uri="$MONGO_DESTINATION_URI" -d "$MONGO_DATABASE" "mongodb_backup/$MONGO_DATABASE"
 elif [ ! -z ${MONGO_DESTINATION_AUTH_DB:-} ]; then
-  mongorestore --drop -h "$MONGO_DESTINATION_HOST" -d "$MONGO_DATABASE" -u "$MONGO_DESTINATION_USER" -p "$MONGO_DESTINATION_PASSWORD" "mongodb_backup/$MONGO_DATABASE" --authenticationDatabase "$MONGO_DESTINATION_AUTH_DB"
+  mongorestore --drop --convertLegacyIndexes -h "$MONGO_DESTINATION_HOST" -d "$MONGO_DATABASE" -u "$MONGO_DESTINATION_USER" -p "$MONGO_DESTINATION_PASSWORD" "mongodb_backup/$MONGO_DATABASE" --authenticationDatabase "$MONGO_DESTINATION_AUTH_DB"
 else
-  mongorestore --drop -h "$MONGO_DESTINATION_HOST" -d "$MONGO_DATABASE" -u "$MONGO_DESTINATION_USER" -p "$MONGO_DESTINATION_PASSWORD" "mongodb_backup/$MONGO_DATABASE"
+  mongorestore --drop --convertLegacyIndexes -h "$MONGO_DESTINATION_HOST" -d "$MONGO_DATABASE" -u "$MONGO_DESTINATION_USER" -p "$MONGO_DESTINATION_PASSWORD" "mongodb_backup/$MONGO_DATABASE"
 fi;
 
 echo "Removing local backup"
