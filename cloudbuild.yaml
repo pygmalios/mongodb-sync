@@ -4,3 +4,5 @@ steps:
 images:
 - 'eu.gcr.io/$PROJECT_ID/${REPO_NAME}:${_ENV_IMAGE_TAG}-${COMMIT_SHA}-${BUILD_ID}'
 - 'eu.gcr.io/$PROJECT_ID/${REPO_NAME}:${_ENV_IMAGE_TAG}'
+substitutions:
+  _ENV_IMAGE_TAG: test
